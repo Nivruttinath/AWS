@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: 2010-09-09    
+Parameters:   
+  BucketName:   
+    Description: Name of S3 Bucket  
+    Type: String  
+    Default: "mohanraz81-us-east-1-testbucket"  
+Resources:    
+  S3Bucket:    
+    Type: 'AWS::S3::Bucket'    
+    Properties: 
+        BucketName: 
+          Ref: BucketName
+ 
+Outputs:    
+  S3BucketName:    
+    Value: !Ref S3Bucket    
+    Description: Name of S3 bucket

@@ -1,0 +1,84 @@
+    1  cat /etc/issue
+    2  aws
+    3  aws help
+    4  aws --help
+    5  aws help
+    6  aws s3 help
+    7  aws configure
+    8  ls-al
+    9  ls -al
+   10  cd
+   11  ls -al
+   12  cd .aws/config 
+   13  ls
+   14  cd .aws/
+   15  ls
+   16  cat config 
+   17  ls
+   18  cat credentials 
+   19  pwd
+   20  ls
+   21  cat credentials l
+   22  clear
+   23  cat config 
+   24  cat credentials 
+   25  aws s3 mb s3://niv-us-east-1-cli
+   26  awd s3 ls
+   27  awd s3 
+   28  aws s3 ls
+   29  yum list python
+   30  sudo pip install boto3
+   31  vi test.py
+   32  ls
+   33  python test.py 
+   34  cd 
+   35  cd environment/
+   36  ls
+   37  python s3.py 
+   38  ls
+   39  python s3.py 
+   40  aws s3 ls
+   41  ls
+   42  sudo pip install update awscli
+   43  aws s3 ls
+   44  clear
+   45  ls
+   46  pwd
+   47  cat s3.yaml 
+   48  pwd
+   49  clear
+   50  aws cloudformation create-stack --stack-name myteststack --template-body file://s3.yaml --parameters ParameterKey=BucketName,ParameterValue=nivruttinath-cf
+   51  history > history.txt
+   52  vi history.txt .
+   53  wc -l history.txt 
+   54  less history.txt 
+   55  ls
+   56  sudo yum -y install ansible
+   57  ls
+   58  pwd
+   59  ls -l
+   60  chmod 600 nivwebkey.pem 
+   61  ls -l
+   62  sudo vi /etc/ansible/ansible.cfg 
+   63  ansible -i webhosts ping webservers
+   64  ls
+   65  cat webhosts 
+   66  ansible -i webhosts -m ping webservers
+   67  vi webhosts 
+   68  ansible -i webhosts -m ping webservers
+   69  ansible-playbook -i webhosts webdeploy.yaml 
+   70  ls
+   71  ls -ltr
+   72  cat webhosts 
+   73  cat webdeploy.
+   74  cat webdeploy.yaml 
+   75  cat webdeploy.retry 
+   76  ls -ltr
+   77  history 
+   78  cat webhosts 
+   79  ls -ltr
+   80  ls
+   81  git --version
+   82  ls -ltr
+   83  mkdir 19_09
+   84  history > history.txt 
