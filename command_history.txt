@@ -1,0 +1,10 @@
+aws configure
+cd .aws/config 
+cat config 
+cat credentials 
+aws s3 mb s3://niv-us-east-1-cli
+sudo pip install boto3
+python test.py 
+sudo pip install update awscli
+cat s3.yaml 
+aws cloudformation create-stack --stack-name myteststack --template-body file://s3.yaml --parameters ParameterKey=BucketName,ParameterValue=nivruttinath-cf
