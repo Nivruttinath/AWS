@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: 2010-09-09    
+Parameters:   
+  BucketName:   
+    Description: Name of S3 Bucket  
+    Type: String  
+    Default: "nivrutti1-us-east-1-testbucket"  
+  BucketName2:   
+    Description: Name of S3 Bucket  
+    Type: String  
+    Default: "nivrutti2-us-east-1-testbucket"
+Resources:    
+  S3Bucket:    
+    Type: 'AWS::S3::Bucket'    
+    Properties: 
+        BucketName: 
+          Ref: BucketName
+  S3Bucket2:    
+    Type: 'AWS::S3::Bucket'    
+    Properties: 
+        BucketName: 
+          Ref: BucketName2 
+Outputs:    
+  S3BucketName:    
+    Value: !Ref S3Bucket    
+    Description: Name of S3 bucket
+  S3BucketName2:    
+    Value: !Ref S3Bucket    
+    Description: Name of S3 bucket
