@@ -4,3 +4,9 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-reso
 
 aws cloudformation create-stack --stack-name myteststack --template-body file://s3.yaml --parameters ParameterKey=BucketName,ParameterValue=nivruttinath-cf
 
+ansible-playbook -e ansible_python_interpreter=/usr/bin/python -e amiversion=10.0 network.yml
+
+sudo yum -y install ansible	  
+sudo vi /etc/ansible/ansible.cfg
+ansible -i webhosts -m ping webservers
+ansible-playbook -i webhosts webdeploy.yaml 
