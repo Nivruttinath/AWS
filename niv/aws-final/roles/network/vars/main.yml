@@ -16,4 +16,4 @@ firstprivatesubnetcidr: 10.54.3.0/24
 firstprivatesubnetavailabilityzone: us-east-1a
 secondprivatesubnetname: app-private-sn2
 secondprivatesubnetcidr: 10.54.4.0/24
-secondprivatesubnetavailabilityzone: us-east-1b
+secondprivatesubnetavailabilityzone: us-east-1d

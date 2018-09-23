@@ -288,8 +288,8 @@ Resources:
        CidrBlock:
          Ref: firstpublicsubnetcidr
        PortRange:
-         From: '80'
-         To: '80'
+         From: '3306'
+         To: '3306'
    appaclhttpwebsn2:
      Type: AWS::EC2::NetworkAclEntry
      Properties:
@@ -301,8 +301,8 @@ Resources:
        CidrBlock:
          Ref: secondpublicsubnetcidr
        PortRange:
-         From: '80'
-         To: '80'
+         From: '3306'
+         To: '3306'
    appaclephiwebsn1:
      Type: AWS::EC2::NetworkAclEntry
      Properties:
