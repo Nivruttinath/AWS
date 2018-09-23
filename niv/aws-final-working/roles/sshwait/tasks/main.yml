@@ -1,3 +1,0 @@
-- name: "Wait for SSH banners"
-  local_action: wait_for port=22 host="{{ inventory_hostname }}" search_regex=OpenSSH delay=5
-  become: False
