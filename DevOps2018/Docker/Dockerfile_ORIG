@@ -1,0 +1,22 @@
+FROM tools.dct.vodafone.com:50443/vfstart/jdk/vf-start-jdk8:1.0
+
+USER app
+
+ARG TOOLS_USER
+ARG TOOLS_PASSWORD
+
+
+ENV SP_HOME /opt/SP
+ENV PATH $PATH:$JAVA_HOME/bin
+
+COPY wrapper.sh /home/app/wrapper.sh
+
+RUN mkdir -p ${SP_HOME}/log  && \
+  wget -O - --user ${TOOLS_USER} --password ${TOOLS_PASSWORD} https://tools.dct.vodafone.com/releases/DEV/com/vodafone/global/vfaccess/sher/0.0.1-build43/sher-0.0.1-build43.tar.gz | tar zxf - -C ${SP_HOME}
+   cp /home/app/wrapper.sh ${SP_HOME}/wrapper.sh && \
+
+chmod 755 ${SP_HOME}/wrapper.sh
+
+WORKDIR ${SP_HOME}/
+
+CMD ["/opt/SP/wrapper.sh"]

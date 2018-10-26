@@ -1,0 +1,70 @@
+Docker Study Guide :
+
+Docker installation steps :
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
+
+For a detailed introduction to the different components of a Docker container :
+https://www.digitalocean.com/community/tutorials/the-docker-ecosystem-an-introduction-to-common-components
+
+Prerequisites :
+1. 64-bit Ubuntu 16.04 server
+2. Non-root user with sudo privileges
+
+Step 1 — Installing Docker
+The Docker installation package available in the official Ubuntu 16.04 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository. First, add the GPG key for the official Docker repository to the system:
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+Add the Docker repository to APT sources:
+# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+Next, update the package database with the Docker packages from the newly added repo:
+# sudo apt-get update
+
+Make sure you are about to install from the Docker repo instead of the default Ubuntu 16.04 repo:
+# apt-cache policy docker-ce
+
+Finally, install Docker:
+# sudo apt-get install -y docker-ce
+
+Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it's running:
+# sudo systemctl status docker
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+sudo docker build -t nivrutti_apache:1.0 .
+sudo docker images
+sudo docker run --name test-apache nivrutti_apache:1.0
+
+sudo docker run --name test -p 8095:8888 nivrutti_apache:1.0
+
+sudo docker run --name niv1 -d -p 8090:80 -v /home/vfroot/Documents/DevOps/nginx.conf:/etc/nginx/nginx.conf:ro -v /home/vfroot/Documents/DevOps:/usr/share/nginx/html:ro  nginx:1.10.1-alpine
+
+sudo docker run --name test -d -p 8097:8888 -v /home/vfroot/Documents/DevOps:/usr/local/apache2/htdocs/:ro nivrutti_apache:1.0
+
+
+vfroot@niv:~/Desktop/test_virtual_host/niv-fe$ sudo docker ps -a
+CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                   PORTS                            NAMES
+daa193094bf8        nivrutti_apache:1.0   "httpd-foreground"       2 hours ago         Up 2 hours               80/tcp, 0.0.0.0:8097->8888/tcp   MyApache
+454e87147a29        nginx:1.10.1-alpine   "nginx -g 'daemon of…"   3 hours ago         Up 3 hours               443/tcp, 0.0.0.0:8090->80/tcp    niv
+cc854568e788        nivrutti_apache:1.0   "httpd-foreground"       3 hours ago         Up 3 hours               80/tcp, 0.0.0.0:8095->8888/tcp   test
+064ff86803c9        nivrutti_apache:1.0   "httpd-foreground"       3 hours ago         Exited (0) 3 hours ago                                    test-apache
+
+
+vfroot@niv:~/Desktop/test_virtual_host/niv-fe$ sudo docker images -a
+REPOSITORY                                          TAG                 IMAGE ID            CREATED             SIZE
+nivrutti_apache                                     1.0                 c914498a56db        4 hours ago         100MB
+<none>                                              <none>              f2a65dfdb905        4 hours ago         100MB
+tools.dct.vodafone.com:50443/vshinde/apachefebase   v0.2                3903a3a47c94        7 weeks ago         100MB
+nginx                                               1.10.1-alpine       2cd900f340dd        22 months ago       54MB
+
+
+
+
+http://localhost:8097/
+http://www.niv.thinkpad.com:8097/
+http://niv.thinkpad.com:8097/
+Docker stores the credential details to inside /home/vfroot/.docker/config.json file. These details are used to pull or push the docker images in repository.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
